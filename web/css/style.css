@@ -1,0 +1,535 @@
+@media (min-width: 991px) and (max-width: 1199px) {
+     .mini img {
+        width: 92px;
+    }
+}
+
+@media (max-width: 991px) {
+    .item img {
+        border: 0 none;
+        border-bottom: 2px solid black;
+    }
+}
+
+@media (max-width: 991px){
+    .txt {
+        width: 100%;
+        margin: 35px 0;
+    }
+}
+
+@media (min-width: 1200px) {
+     .txt {
+        width: 209px;
+    }
+}
+
+
+*{
+    color:white;
+}
+body{
+    background-color: black;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+.container-fluid a{
+    text-decoration: none;
+}
+.footer a{
+    text-decoration: none;
+}
+#logo {
+    width:150px;
+    margin: 20px auto 30px auto;
+position: relative;
+}
+
+.nav-justified{
+    margin-top:20px;
+}
+#about,#laboratory,#gallery,#shop,#blog{
+    width:100%;
+    height:150px;
+    margin-bottom: -35px;
+    position: relative;
+}
+#about img{
+    width:100%;
+    height:95px;
+    position: absolute;
+    margin-top: -80px;
+    z-index: -5;
+
+}
+#laboratory img{
+    width:100%;
+    height:90px;
+    position: absolute;
+    margin-top: -75px;
+    z-index: -5;
+}
+#gallery img{
+    width:100%;
+    height:90px;
+    position: absolute;
+    margin-top: -75px;
+    z-index: -5;
+}
+#shop img{
+    width:100%;
+    height:90px;
+    position: absolute;
+    margin-top: -75px;
+    z-index: -5;
+}
+#blog img{
+    width:100%;
+    height:90px;
+    position: absolute;
+    margin-top: -75px;
+    z-index: -5;
+}
+#pic2{
+    background-image: url(../img/pic2.jpg);
+    background-size: cover;
+    width:95%;
+    height:60px;
+    filter:invert(100%);
+}
+.hover{
+    filter:invert(0);
+    transition: filter 0.5s ease-out 0.1s;
+}
+.hover:hover{
+    filter:invert(100%);
+    transition: filter 0.5s ease-out 0.1s;
+}
+.stiker{
+    background-color:red;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+    background-repeat: no-repeat;
+    width:120px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    margin-top: 0px;
+    margin-left: 20px;
+    height:60px;
+    transition: margin-top 1s ease-out 0.1s;
+}
+.stikerin{
+    background-color:red;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+    background-repeat: no-repeat;;
+    width:120px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    margin-top: -41px;
+    margin-left: 20px;
+    height:60px;
+    transition: margin-top 0.7s ease-out 0.1s;
+}
+.stikerin2{
+    background-color:red;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+    background-repeat: no-repeat;
+    width:120px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    margin-top: -31px;
+    margin-left: 20px;
+    height:60px;
+    transition: margin-top 0.7s ease-out 0.1s;
+}
+.stikerin3{
+    background-color:red;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+    background-repeat: no-repeat;
+    width:120px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    margin-top: -29px;
+    margin-left: 20px;
+    height:60px;
+    transition: margin-top 0.7s ease-out 0.1s;
+}
+.stikerin4{
+    background-color:red;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+    background-repeat: no-repeat;
+    width:120px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    margin-top: -27px;
+    margin-left: 20px;
+    height:60px;
+    transition: margin-top 0.7s ease-out 0.1s;
+}
+.stikerin5{
+    background-color:red;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+    background-repeat: no-repeat;
+    width:120px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-align: center;
+    position: absolute;
+    z-index: -10;
+    margin-top: -34px;
+    margin-left: 20px;
+    height:60px;
+    transition: margin-top 0.7s ease-out 0.1s;
+}
+.footer a:hover{
+    color:gray;
+}
+
+.footer .col-md-3{
+    padding-left: 20px;
+}
+.rights{
+    padding:10px 0;
+}
+.social i{
+    margin:5px;
+    font-size: 23px;
+}
+.social i:hover {
+    color:red;
+}
+#authorization{
+    height: 30px;
+    width: 120px;
+    position: absolute;
+    right:-48px;
+    z-index: 15;
+    top: 100px;
+    transform: rotate(270deg);
+    transition: 0.3s ease-out 0.1s;
+}
+/*about*/
+article {
+    background-color: rgba(255, 251, 233, 0.3);
+    color:black;
+    overflow: hidden;
+}
+#aboutpage{
+    background-image: url(../img/indexfon.jpg);
+    background-size: cover;
+}
+#aboutpage .col-md-6{
+    background-color: rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+/*authorgallery*/
+.aboutauthor{
+    height: 300px;
+    background-color: rgba(255, 251, 233, 0.1);
+}
+.avatar{
+    height: 300px;
+    background-size: 100%;
+    background-position:50%;
+
+}
+.works{
+width:95%;
+    margin: 20px auto;
+}
+.breadcrumb{
+    background-image: none;
+    border:none;
+    margin: 0;
+}
+/*product*/
+#catbtn{
+    margin: 10px 0;
+}
+.productwrap{
+    text-align: justify;
+}
+.productcard{
+    height:320px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    position: relative;
+    border-radius: 2%;
+}
+.productwrap:after {
+    display: inline-block;
+    content: "";
+    width: 100%;
+}
+.productcard img {
+    height: auto;
+    max-width: 100%;
+}
+.content{
+    margin-top: 50px;
+}
+.product {
+    height: 430px;
+    overflow: hidden;
+    padding: 10px 10px;
+    position: relative;
+    transition: all 0.5s ease 0s;
+    margin-bottom: 10px;
+}
+.product:hover {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+}
+.product-img {
+    height: 200px;
+}
+
+.product-desc {
+    max-height: 60px;
+    overflow: hidden;
+}
+.product-price {
+    bottom: 15px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    background-image: linear-gradient(#bb1813, #d71c16 40%, #e01d17);
+}
+.productsfon{
+    background-image: url(../img/prodfon.jpg);
+    background-size: cover;
+}
+
+/*Laboratory*/
+.addbtn{
+    width:100%;
+    margin-top: 10px;
+}
+
+.element-item {
+    padding: 2px;
+}
+.persent-size {
+    width: 45%;
+}
+
+.element-item p{
+    position: absolute;
+    z-index: 50;
+    top:0%;
+    padding-top: 40%;
+    height: 100%;
+    width:65%;
+    font-size: 1.6vw;
+    margin-left: 30px;
+    opacity: 0;
+}
+
+.element-item .blocklab{
+    position: absolute;
+    z-index: 50;
+    top:0%;
+    padding-top: 20%;
+    height: 100%;
+    width:65%;
+    font-size: 1.6vw;
+    margin-left: 30px;
+
+    opacity: 0;
+}
+.aboutlab p{
+    padding: 10px;
+    width:100%;
+}
+.hoverblur{
+    filter: blur(0px);
+    opacity: 1;
+    transition: 0.3s ease-out 0.1s;
+}
+.hoverblurin{
+    filter: blur(3px);
+    opacity: 0.3;
+    transition: 0.3s ease-out 0.1s;
+}
+/*Shop*/
+.shop_category{
+    height:100px;
+    margin: 20px 0;
+    background-color: rgba(1, 1, 1, 0.6);
+    border-radius: 15px;
+
+}
+.shop_category img{
+    height:100px;
+    filter:brightness(65%);
+    border-radius: 5%;
+   /* opacity:0.6;*/
+}
+.shop_category p{
+    font-size: 14px;
+    color:white;
+
+}
+.shop_category h3{
+    font-size: 22px;
+    color:white;
+
+}
+.shop_category div{
+    display: inline-block;
+    margin-left: 30px;
+    color:white;
+
+}
+.shopfon {
+    background-image: url(../img/1.jpg);
+    background-size: cover;
+}
+/*Gallery*/
+.gallery{
+    width: 100%;
+    text-align:center;
+
+}
+
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+.item:nth-child(odd) {
+    margin: 0;
+}
+ .item{width:558px;background-color: #0d0d0d;border-bottom:2px solid black;display: inline-block;margin: 0 24px 20px 0 !important;}
+ .item:nth-child(odd){margin: 0}
+ .item img{width: 100%;border-left:2px solid black;}
+ .item .img{width:336px;float:left;}
+ .item .txt{width:222px;margin: 35px 0 0 0;padding: 0 30px;float:left;}
+ .item .txt a{color: #d1d1d1;font-weight: bold;font-size: 0.85em;}
+ .item .txt span.arrow{padding-right: 5px}
+ .item .txt .gold{color: #baa85a;font-size: 0.85em;font-weight: bold;}
+ .item .txt .title a{font-weight: normal; margin: 10px 0 15px 0;display: inline-block; color: #FFF;font-size: 1.6em;font-family: 'AvenirNextCyrRegular', Helvetica, Arial, sans-serif;line-height: 28px;margin: 10px 0}
+ .item .txt .desc{color: #d1d1d1;font-size: 0.85em;margin: 0 0 10px 0}
+.item .mini img{width:100%;float: left;width: 112px;border-right:2px solid black;border-left:0 none;border-top:2px solid black}
+.item .mini img.last{border-right:0;overflow: hidden;width: 110px;}
+
+/*Profile*/
+.profilefon{
+    background-image: url(../img/profilefon.jpg);
+    background-size: cover;
+}
+.profile{
+    background-color: rgba(1, 1, 1, 0.6);
+    text-align: center;
+    padding-top: 10px;
+}
+.profile h2{
+margin: 0 0 10px 0;
+}
+.profile figure, .profile .authorinfo {
+    display: inline-block;
+    vertical-align:bottom;
+    margin: 10px 0;
+}
+.profile img, .profile figure{
+    vertical-align:top;
+    max-width: 300px;
+    margin-right: 5px;
+}
+.profile .authorinfo{
+    max-width: 450px;
+    text-align: left;
+}
+.pole{
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+
+}
+
+.logo3 img {
+    width: 150px;
+}
+/*
+.logo2 img{
+    animation:lighting 11s infinite;
+}
+@keyframes lighting{
+    0%,19.999%,22%,62.999%,64%, 64.999%,70%,100% {
+        opacity:0;
+    }
+    20%,21.999%,63%,63.999%,65%,69.999% {
+        opacity:1;
+    }
+}
+*/
+.logo2 img {
+    position:absolute;
+    top:0;
+    opacity: 0;
+}
+
+.form-check-label{
+margin: 0 5px;
+}
+
+.modal p{
+    font-size: 20px;
+}
+.modal .btn-danger{
+    margin: 15px 0;
+}
+
+.registration{
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+
+.registration a{
+    font-size: 25px;
+}
+
+.registration a:hover{
+    color:darkgray;
+}
+.worksfordelete{
+max-width: 100px;
+}
+
+/* хром, сафари */
+body::-webkit-scrollbar { width: 0; }
+
+/* ie 10+ */
+body { -ms-overflow-style: none; }
+
+/*!* фф (свойство больше не работает, других способов тоже нет)*!*/
+/*body { overflow: -moz-scrollbars-none; }*/
+

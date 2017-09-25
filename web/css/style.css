@@ -249,6 +249,20 @@ article {
     background-position:50%;
 
 }
+.agal{
+    display: flex;
+    flex-wrap: wrap;
+}
+.agal a{
+    display: inline-block;
+    margin-bottom: 8px;
+    width: calc(100% - 4px);
+}
+@media screen and (min-width: 50em){
+    .agal a{
+        width: calc(50% - 6px);
+    }
+}
 .works{
 width:95%;
     margin: 20px auto;

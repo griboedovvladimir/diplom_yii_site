@@ -29,15 +29,21 @@ $this->title = 'Блог';
 
 <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-5"><a href="img/userimg/vlad1.jpg" data-fancybox data-caption=""><img class="works center-block" src="img/userimg/vlad1.jpg" alt="" /></a></div>
-    <div class="col-md-5"><a href="img/userimg/vlad2.jpg" data-fancybox data-caption=""><img class="works center-block" src="img/userimg/vlad2.jpg" alt="" /></a></div>
+    <div class="col-md-10 agal">
+        <?php foreach ($allimg as $img){
+            echo '<a href="/'.$img->image.'" data-fancybox data-caption=""><img class="works center-block" src="/'.$img->image.'" alt="" /></a>';
+           // echo $img->image;
+        }
+        ?>
+<!--        <a href="/img/userimg/vlad1.jpg" data-fancybox data-caption=""><img class="works center-block" src="/img/userimg/vlad1.jpg" alt="" /></a>-->
+    </div>
     <div class="col-md-1"></div>
 </div>
 
 
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8"> <button type="button" id="galleryAddBtn" class="btn btn-default addbtn">Добавить фотоработу</button> </div>
+    <div class="col-md-8"> <button type="button" id="galleryAddBtn" class="btn btn-default addbtn">Добавить / удалить фотоработу</button> </div>
     <div class="col-md-2"></div>
 </div>
 
@@ -55,18 +61,13 @@ $this->title = 'Блог';
                 <div class="form-group">
                     <p>Загруженные работы:</p>
                     <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <img class="worksfordelete" src="img/pic3.jpg">
-                        </label>
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <img class="worksfordelete" src="img/pic3.jpg">
-                        </label>
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            <img class="worksfordelete" src="img/pic3.jpg">
-                        </label>
+<?php foreach ($allimg as $img){ ?>
+
+    <label class="form-check-label" >
+                            <input type = "checkbox" class="form-check-input" >
+                            <img class="worksfordelete" src = "/<?=$img->image ?>">
+                        </label >
+    <?php } ?>
                     </div>
                     <button type="submit" class="btn btn-danger">Удалить отмеченные</button>
 

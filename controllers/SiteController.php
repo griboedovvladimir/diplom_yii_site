@@ -12,6 +12,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\News;
 use app\models\User;
+use app\models\Images;
 use app\models\Category;
 use yii\data\Pagination;
 use app\models\DataForm;
@@ -183,13 +184,14 @@ class SiteController extends Controller
     {
         $get=Yii::$app->request->get('id');
         if($get){
+            $allimg = Images::find()->where(['users_id'=>$get])->all();
             $author = User::findOne($get);
             return $this->render('authorgallery', [
                 'author' => $author,
-                'models' => [],
+                'allimg' => $allimg,
             ]);
         }
-        else{return $this->render('error',['model'=>$model]);}
+        else{return $this->render('error',['model'=>$get]);}
     }
     public function actionBlog()
     {

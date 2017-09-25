@@ -27,8 +27,8 @@ AppAsset::register($this);
 
 <div class="container-fluid">
     <div id="logo" class="logo center-block">
-        <a href="<?=Yii::$app->homeUrl;?>"><div class="logo3"><img src="img/logo.png"></div>
-            <div class="logo2"><img src="img/logo2.png"></div></a>
+        <a href="<?=Yii::$app->homeUrl;?>"><div class="logo3"><img src="/img/logo.png"></div>
+            <div class="logo2"><img src="/img/logo2.png"></div></a>
     </div>
 
     <div class="row">

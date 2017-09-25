@@ -17,7 +17,7 @@ $this->title = 'Блог';
 
 <?php
 foreach ($models as $mod) {
-    echo "<a href=".Yii::$app->getUrlManager()->createUrl('blog')."?id=".$mod->blog_id."><h3>".$mod->title."</h3></a>";
+    echo "<a href=".Yii::$app->getUrlManager()->createUrl('blog')."/".$mod->blog_id."><h3>".$mod->title."</h3></a>";
 }
 $get=Yii::$app->request->get('id');
 

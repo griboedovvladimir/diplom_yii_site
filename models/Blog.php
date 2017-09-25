@@ -18,11 +18,6 @@ class Blog extends ActiveRecord
         return 'Blog';
     }
 
-    public function getNews()
-    {
-        return $this->hasOne(Blog::className(), ['blog_id' => 'blog_id']);
-    }
-
     public function rules()
     {
         return [

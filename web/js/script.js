@@ -130,6 +130,9 @@ mouseout(function(){
 		// Options will go here
 	});
 
+    $('#productAddBtn').click(function() {
+        $("#myModalBox").modal('show');
+    });
     $('#galleryAddBtn').click(function() {
         $("#myModalBox").modal('show');
     });

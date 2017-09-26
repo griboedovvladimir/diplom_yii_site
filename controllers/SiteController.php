@@ -10,10 +10,10 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\News;
 use app\models\User;
 use app\models\Images;
 use app\models\Category;
+use app\models\Product;
 use yii\data\Pagination;
 use app\models\DataForm;
 class SiteController extends Controller
@@ -72,22 +72,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        /*
-                $index = News::findOne(4);
-                return $this->render('index', [
-                    'example' => $index
-                ]);
-        */
-        /*
-                $index = News::find()->all();
 
-                return $this->render('index', [
-                    'example' => $index
-                ]);
-        */
-
-//            $index = Category::findOne($id);
-//            $index2 = $index->news;
         $this->layout = 'start';
         return $this->render('index', [
             'example' => $index, 'example2' => $index2
@@ -174,11 +159,14 @@ class SiteController extends Controller
     }
     public function actionGallery()
     {
-        return $this->render('gallery',['model'=>$model]);
+        $user= User::find()->all();
+        $images= Images::find()->all();
+        return $this->render('gallery',['user'=>$user, 'images'=>$images]);
     }
     public function actionShop()
     {
-        return $this->render('shop',['model'=>$model]);
+        $query = Category::find()->all();
+        return $this->render('shop',['query'=>$query]);
     }
     public function actionAuthorgallery()
     {
@@ -193,6 +181,17 @@ class SiteController extends Controller
         }
         else{return $this->render('error',['model'=>$get]);}
     }
+
+    public function actionProducts()
+    {
+        $get=Yii::$app->request->get('id');
+        $productcard = Product::find()->where(['category_id'=>$get])->all();
+        $username= User::find()->all();
+        $cat = Category::findOne($get);
+        $allcat = Category::find()->all();
+        return $this->render('products',['cat'=>$cat,'allcat'=>$allcat,'productcard'=>$productcard,'username'=>$username]);
+    }
+
     public function actionBlog()
     {
         $get=Yii::$app->request->get('id');

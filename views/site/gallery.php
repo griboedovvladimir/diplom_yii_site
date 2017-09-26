@@ -15,53 +15,61 @@ $this->title = 'Галерея';
     <div class="col-md-10">
         <div class="gallery fadeIn animated">
 
-
+<? foreach($user as $usergallery){ $link=$usergallery->users_id ?>
             <div class='item clearfix'>
                 <div class='img hidden-lg hidden-md'>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad1.jpg' /></a>
+                    <a href="<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>"><img src='<?  foreach($images as $img){if($usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
                 </div>
                 <div class='txt'>
-                    <div class='title'><a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'>Имя автора </a></div>
+                    <div class='title'><a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><?=$usergallery->name." ".$usergallery->surname?> </a></div>
                     <div class='desc hidden-md hidden-xs'>
 
                     </div>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'>Об авторе<span class='arrow right grey'></span></a>
+                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'>Подробнее<span class='arrow right grey'></span></a>
                 </div>
                 <div class='img hidden-sm hidden-xs'>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad1.jpg' /></a>
+                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<?  foreach($images as $img){if($usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
                 </div>
                 <div class='mini hidden-sm hidden-xs'>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad2.jpg' /></a>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad3.jpg' /></a>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad4.jpg' /></a>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad5.jpg' /></a>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/1')?>'><img src='img/userimg/vlad6.jpg' class='last' /></a>
+                    <? $i=0; foreach($images as $img)
+                    {if($usergallery->users_id==$img->users_id)
+                    {$link2=$img->image;?>
+                        <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<?=$link2?>' /></a>
+                   <? $i++;
+                    if($i >3) break; }}?>
+                    <? $i=0; foreach($images as $img)
+                    {if($usergallery->users_id==$img->users_id)
+                    {$link2=$img->image;$i++; if($i >4){?>
+                        <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<?=$link2?>'  class='last'/></a>
+                        <?;
+                         break; }}}?>
+
                 </div>
             </div>
+<?}?>
 
-
-            <div class='item clearfix'>
-                <div class='img hidden-lg hidden-md'>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>
-                </div>
-                <div class='txt'>
-                    <div class='title'><a href='/authors/John-Pepper'>Имя автора </a></div>
-                    <div class='desc hidden-md hidden-xs'>
-
-                    </div>
-                    <a href='/authors/John-Pepper'>Об авторе<span class='arrow right grey'></span></a>
-                </div>
-                <div class='img hidden-sm hidden-xs'>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>
-                </div>
-                <div class='mini hidden-sm hidden-xs'>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>
-                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' class='last' /></a>
-                </div>
-            </div>
+<!--            <div class='item clearfix'>-->
+<!--                <div class='img hidden-lg hidden-md'>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
+<!--                </div>-->
+<!--                <div class='txt'>-->
+<!--                    <div class='title'><a href='/authors/John-Pepper'>Имя автора </a></div>-->
+<!--                    <div class='desc hidden-md hidden-xs'>-->
+<!---->
+<!--                    </div>-->
+<!--                    <a href='/authors/John-Pepper'>Об авторе<span class='arrow right grey'></span></a>-->
+<!--                </div>-->
+<!--                <div class='img hidden-sm hidden-xs'>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
+<!--                </div>-->
+<!--                <div class='mini hidden-sm hidden-xs'>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
+<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' class='last' /></a>-->
+<!--                </div>-->
+<!--            </div>-->
 
         </div>
     </div>

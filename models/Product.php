@@ -12,21 +12,25 @@ use yii\db\ActiveRecord;
  * @property User|null $user This property is read-only.
  *
  */
-class Images extends ActiveRecord
+class Product extends ActiveRecord
 {
     public static function tablename(){
-        return 'Images';
+        return 'Product';
     }
 
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['category_id' => 'category_id']);
+    }
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['users_id' => 'users_id']);
+        return $this->hasOne(User::className(), ['user_id' => 'users_id']);
     }
 
     public function rules()
     {
         return [
-            [['image'], 'required'],
+            [['product_name'], 'required'],
         ];
     }
 

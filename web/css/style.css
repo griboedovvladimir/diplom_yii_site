@@ -280,7 +280,7 @@ width:95%;
     text-align: justify;
 }
 .productcard{
-    height:320px;
+    height:400px;
     width: 280px;
     background-color: rgba(0, 0, 0, 0.5);
     display: inline-block;
@@ -299,8 +299,11 @@ width:95%;
 .content{
     margin-top: 50px;
 }
+.product h4{
+    font-weight: bold;
+}
 .product {
-    height: 430px;
+    height: 450px;
     overflow: hidden;
     padding: 10px 10px;
     position: relative;
@@ -311,7 +314,7 @@ width:95%;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
 }
 .product-img {
-    height: 200px;
+   /* height: 200px;*/
 }
 
 .product-desc {

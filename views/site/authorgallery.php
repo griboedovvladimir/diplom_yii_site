@@ -54,7 +54,7 @@ $this->title = 'Блог';
             <!-- Заголовок модального окна -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Добавить фотоработу в галерею</h4>
+                <h4 class="modal-title">Добавить / удалить фотоработу </h4>
             </div>
             <!-- Основное содержимое модального окна -->
             <div class="modal-body">

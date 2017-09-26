@@ -22,6 +22,11 @@ class User extends ActiveRecord
     {
         return $this->hasMany(Images::className(), ['users_id' => 'users_id']);
     }
+    public function getProduct()
+    {
+        return $this->hasMany(Product::className(), ['users_id' => 'users_id']);
+    }
+
 
     public function rules()
     {

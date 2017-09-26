@@ -18,15 +18,15 @@ class Category extends ActiveRecord
         return 'Category';
     }
 
-    public function getNews()
+    public function getProduct()
     {
-        return $this->hasMany(News::className(), ['CategoryID' => 'CategoryID']);
+        return $this->hasMany(Product::className(), ['category_id' => 'category_id']);
     }
 
     public function rules()
     {
         return [
-            [['CategoryName'], 'required'],
+            [['product_name'], 'required'],
         ];
     }
 

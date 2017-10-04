@@ -45,7 +45,7 @@ $this->title = $cat->category_name;
                     <p>Имя продавца:</p>
                     <? foreach  ($username as $name){
                         if($name->users_id==$card->users_id){
-                          echo  "<p>".$name->name." ".$name->surname."</p>";
+                          echo  "<p>".$name->username." ".$name->surname."</p>";
                         }
                     }?>
                     <p>Контакты продавца:</p>

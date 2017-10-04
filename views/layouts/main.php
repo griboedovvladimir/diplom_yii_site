@@ -60,10 +60,32 @@ AppAsset::register($this);
                             <li><a href="<?=Yii::$app->getUrlManager()->createUrl('gallery')?>">Галерея</a></li>
                             <li><a href="<?=Yii::$app->getUrlManager()->createUrl('shop')?>">Фотолавка</a></li>
                             <li><a href="<?=Yii::$app->getUrlManager()->createUrl('blog')?>">Блог</a></li>
-                        </ul>
 
-                        <p class="navbar-text navbar-right">Вошли как Тимофей</p>
-                        <button type="button" class="btn btn-default navbar-btn btn-danger navbar-right">Выйти</button>
+                        </ul>
+                        <p class="navbar-text navbar-right">
+                            <?
+                            if (Yii::$app->user->identity->username){
+                            echo "&nbsp".Yii::$app->user->identity->username.", Вы в даркруме!";}
+                            else {echo "&nbsp Пока что Ваш статуст \"Гость\"";}
+                            ?>
+                        </p>
+
+                        <? $link='<button type="button" class="btn btn-default navbar-btn btn-danger navbar-right">Выйти</button>'?>
+                        <? $link2='<button type="button" class="btn btn-default navbar-btn btn-danger navbar-right">Войти</button>'?>
+                            <?
+                            if (Yii::$app->user->identity->username) {
+                                echo Html::a("$link", ['/site/logout'], [
+                                    'data' => ['method' => 'post'],
+                                    'class' => 'white text-center',
+                                ]);
+                            }
+                            else {
+                                echo Html::a("$link2", Yii::$app->getUrlManager()->createUrl('login'), [
+                                    'class' => 'white text-center',
+                                ]);
+                            }
+                            ?>
+
 
 
                     </div>
@@ -110,61 +132,6 @@ AppAsset::register($this);
     </div>
 </div>
 
-
-
-<!---->
-<!--<div class="wrap">-->
-<!--    --><?php
-//    NavBar::begin([
-//        'brandLabel' => 'My Company',
-//        'brandUrl' => Yii::$app->homeUrl,
-//        'options' => [
-//            'class' => 'navbar-inverse navbar-fixed-top',
-//        ],
-//    ]);
-//    $nav = N::$arr;
-//    //var_dump(N::toArr());
-//    echo Nav::widget([
-//        'options' => ['class' => 'navbar-nav navbar-right'],
-//        'items' =>
-//            //N::toArr(),
-//            [
-//
-//            ['label' => 'Home', 'url' => ['/site/index']],
-//            ['label' => 'About', 'url' => ['/site/about']],
-//            ['label' => 'Contact', 'url' => ['/site/contact']],
-//            Yii::$app->user->isGuest ? (
-//                ['label' => 'Login', 'url' => ['/site/login']]
-//            ) : (
-//                '<li>'
-//                . Html::beginForm(['/site/logout'], 'post')
-//                . Html::submitButton(
-//                    'Logout (' . Yii::$app->user->identity->username . ')',
-//                    ['class' => 'btn btn-link logout']
-//                )
-//                . Html::endForm()
-//                . '</li>'
-//            )
-//        ],
-//    ]);
-//    NavBar::end();
-//    ?>
-<!---->
-<!--    <div class="container">-->
-<!--        --><?//= Breadcrumbs::widget([
-//            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-//        ]) ?>
-<!--        --><?//= $content ?>
-<!--    </div>-->
-<!--</div>-->
-<!---->
-<!--<footer class="footer">-->
-<!--    <div class="container">-->
-<!--        <p class="pull-left">&copy; My Company --><?//= date('Y') ?><!--</p>-->
-<!---->
-<!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
-<!--    </div>-->
-<!--</footer>-->
 
 <?php $this->endBody() ?>
 </body>

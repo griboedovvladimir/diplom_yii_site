@@ -24,7 +24,7 @@ class Product extends ActiveRecord
     }
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['user_id' => 'users_id']);
+        return $this->hasOne(Users::className(), ['user_id' => 'users_id']);
     }
 
     public function rules()

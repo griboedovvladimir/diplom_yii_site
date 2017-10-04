@@ -15,14 +15,14 @@ $this->title = 'Блог';
     <div class="col-md-10">
         <ol class="breadcrumb">
             <li><a href="<?=Yii::$app->getUrlManager()->createUrl('gallery')?>">Галерея</a></li>
-            <li class="active"><?=$author->name?> <?=$author->surname?></li>
+            <li class="active"><?=$author->username?> <?=$author->surname?></li>
         </ol>
     </div>
     <div class="col-md-1"></div>
 </div>
 <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-3 aboutauthor"><h2><?=$author->name?> <?=$author->surname?></h2><p><?=$author->about?></p></div>
+    <div class="col-md-3 aboutauthor"><h2><?=$author->username?> <?=$author->surname?></h2><p><?=$author->about?></p></div>
     <div class="col-md-7 avatar" style="background-image: url('../img/userimg/vladava.jpg');)"></div>
     <div class="col-md-1"></div>
 </div>

@@ -11,11 +11,13 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\User;
+use app\models\Users;
 use app\models\Images;
 use app\models\Category;
 use app\models\Product;
 use yii\data\Pagination;
 use app\models\DataForm;
+use app\models\SignupForm;
 class SiteController extends Controller
 {
     /**
@@ -98,6 +100,23 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
     public function actionLogin()
     {
 
@@ -159,7 +178,7 @@ class SiteController extends Controller
     }
     public function actionGallery()
     {
-        $user= User::find()->all();
+        $user= Users::find()->all();
         $images= Images::find()->all();
         return $this->render('gallery',['user'=>$user, 'images'=>$images]);
     }
@@ -173,7 +192,7 @@ class SiteController extends Controller
         $get=Yii::$app->request->get('id');
         if($get){
             $allimg = Images::find()->where(['users_id'=>$get])->all();
-            $author = User::findOne($get);
+            $author = Users::findOne($get);
             return $this->render('authorgallery', [
                 'author' => $author,
                 'allimg' => $allimg,
@@ -186,7 +205,7 @@ class SiteController extends Controller
     {
         $get=Yii::$app->request->get('id');
         $productcard = Product::find()->where(['category_id'=>$get])->all();
-        $username= User::find()->all();
+        $username= Users::find()->all();
         $cat = Category::findOne($get);
         $allcat = Category::find()->all();
         return $this->render('products',['cat'=>$cat,'allcat'=>$allcat,'productcard'=>$productcard,'username'=>$username]);

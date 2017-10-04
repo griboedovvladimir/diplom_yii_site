@@ -18,17 +18,17 @@ $this->title = 'Галерея';
 <? foreach($user as $usergallery){ $link=$usergallery->users_id ?>
             <div class='item clearfix'>
                 <div class='img hidden-lg hidden-md'>
-                    <a href="<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>"><img src='<?  foreach($images as $img){if($usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
+                    <a href="<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>"><img src='<? $i=0; foreach($images as $img){ $i++; if($i>5 && $usergallery->users_id==$img->users_id ){echo $img->image; break;}}?>' /></a>
                 </div>
                 <div class='txt'>
-                    <div class='title'><a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><?=$usergallery->name." ".$usergallery->surname?> </a></div>
+                    <div class='title'><a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><?=$usergallery->username." ".$usergallery->surname?> </a></div>
                     <div class='desc hidden-md hidden-xs'>
 
                     </div>
                     <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'>Подробнее<span class='arrow right grey'></span></a>
                 </div>
                 <div class='img hidden-sm hidden-xs'>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<?  foreach($images as $img){if($usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
+                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<? $i=0; foreach($images as $img){ $i++; if($i>5 && $usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
                 </div>
                 <div class='mini hidden-sm hidden-xs'>
                     <? $i=0; foreach($images as $img)

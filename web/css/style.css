@@ -93,7 +93,7 @@ position: relative;
     z-index: -5;
 }
 #pic2{
-    background-image: url(../img/pic2.jpg);
+    /*background-image: url(../img/pic2.jpg);*/
     background-size: cover;
     width:95%;
     height:60px;

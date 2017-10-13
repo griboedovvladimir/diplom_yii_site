@@ -56,8 +56,6 @@ mouseout(function(){
         });
     });
 
-
-
     $('#lab1 p').
     mouseover(function(){
         $('#lab1 img').removeClass('hoverblur').addClass('hoverblurin');

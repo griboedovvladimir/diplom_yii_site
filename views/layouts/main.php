@@ -65,6 +65,8 @@ AppAsset::register($this);
                         <p class="navbar-text navbar-right">
                             <?
                             if (Yii::$app->user->identity->username){
+                                $goToProfile= Yii::$app->user->identity->username;
+           
                             echo "&nbsp".Yii::$app->user->identity->username.", Вы в даркруме!";}
                             else {echo "&nbsp Пока что Ваш статуст \"Гость\"";}
                             ?>

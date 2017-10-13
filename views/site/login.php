@@ -10,10 +10,13 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Авторизация';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Пожалуста заполните поля формы для входа:</p>
+    <p>Пожалуста заполните поля формы для входа, или <a id="signup" href="<?=Yii::$app->getUrlManager()->createUrl('signup')?>">зарегистрируйтесь</a></p>
 
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
@@ -41,7 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php ActiveForm::end(); ?>
 
     <div class="col-lg-offset-1" style="color:#999;">
-        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
-        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+<!--        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>-->
+<!--        To modify the username/password, please check out the code <code>app\models\User::$users</code>.-->
+
+
+
     </div>
+</div>
+    </div>
+    <div class="col-md-5"></div>
 </div>

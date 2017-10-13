@@ -22,16 +22,26 @@ class SignupForm extends Model
     {
         return [
             ['username', 'trim'],
-            ['username', 'required'],
+            ['username', 'required', 'message'=>'Поле "{attribute}" не должно быть пустым.'],
             ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
             ['email', 'trim'],
-            ['email', 'required'],
+            ['email', 'required', 'message'=>'Поле "{attribute}" не должно быть пустым.'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This email address has already been taken.'],
-            ['password', 'required'],
+            ['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Этот email уже занят.'],
+            ['password', 'required', 'message'=>'Поле "{attribute}" не должно быть пустым.'],
             ['password', 'string', 'min' => 6],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Имя',
+            'email' => 'Адрес электронной почты',
+            'password' => 'Пороль',
+//etc...
         ];
     }
 

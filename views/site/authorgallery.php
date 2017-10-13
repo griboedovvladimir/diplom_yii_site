@@ -7,7 +7,7 @@ use \yii\bootstrap\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use yii\widgets\LinkPager;
 
-$this->title = 'Блог';
+$this->title = $author->username." ".$author->surname;
 
 ?>
 <div class="row">
@@ -23,7 +23,7 @@ $this->title = 'Блог';
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3 aboutauthor"><h2><?=$author->username?> <?=$author->surname?></h2><p><?=$author->about?></p></div>
-    <div class="col-md-7 avatar" style="background-image: url('../img/userimg/vladava.jpg');)"></div>
+    <div class="col-md-7 avatar" style="background-image: url('/<?=$author->avatar?>');)"></div>
     <div class="col-md-1"></div>
 </div>
 

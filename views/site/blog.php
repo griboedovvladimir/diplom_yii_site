@@ -11,9 +11,9 @@ $this->title = 'Блог';
 
 ?>
 
-    <div class="row">
+    <div class="row blogpage">
     <div class="col-md-1"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 blogback">
 
 <?php
 foreach ($models as $mod) {

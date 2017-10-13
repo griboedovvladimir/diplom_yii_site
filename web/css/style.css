@@ -41,6 +41,16 @@ img {
 .footer a{
     text-decoration: none;
 }
+#signup{
+    /*font-size: 17px;*/
+    font-weight: 500;
+    text-decoration: underline;
+}
+#signup:hover{
+    color:lightcoral;
+    text-decoration: underline;
+    font-weight: 500;
+}
 #logo {
     width:150px;
     margin: 20px auto 30px auto;
@@ -540,7 +550,14 @@ margin: 0 5px;
 .worksfordelete{
 max-width: 100px;
 }
+.blogpage{
+    /*background-image: url(../img/blogfon.jpg);*/
+    background-size: cover;
 
+}
+.blogback{
+    background-color: rgba(0,0,0,0.3);
+}
 /* хром, сафари */
 body::-webkit-scrollbar { width: 0; }
 

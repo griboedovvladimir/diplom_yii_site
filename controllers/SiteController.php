@@ -211,6 +211,11 @@ class SiteController extends Controller
         return $this->render('products',['cat'=>$cat,'allcat'=>$allcat,'productcard'=>$productcard,'username'=>$username]);
     }
 
+    public function actionProfile()
+    {
+        return $this->render('profile',['model'=>$model]);
+    }
+
     public function actionBlog()
     {
         $get=Yii::$app->request->get('id');

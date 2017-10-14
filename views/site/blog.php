@@ -13,11 +13,13 @@ $this->title = 'Блог';
 
     <div class="row blogpage">
     <div class="col-md-1"></div>
-    <div class="col-md-6 blogback">
+    <div class="col-md-8 blogback">
 
 <?php
 foreach ($models as $mod) {
-    echo "<a href=".Yii::$app->getUrlManager()->createUrl('blog')."/".$mod->blog_id."><h3>".$mod->title."</h3></a>";
+    $img="<img class='blogimg' src='/".$mod->blog_image."'>";
+    $title="<div class='blogtitle'>$mod->title</div>";
+    echo "<a href=".Yii::$app->getUrlManager()->createUrl('blog')."/".$mod->blog_id."><h3>".$img.$title."</h3></a>";
 }
 $get=Yii::$app->request->get('id');
 

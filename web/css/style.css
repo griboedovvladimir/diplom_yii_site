@@ -558,6 +558,17 @@ max-width: 100px;
 .blogback{
     background-color: rgba(0,0,0,0.3);
 }
+.blogimg{
+    display: inline-block;
+    max-width: 200px;
+    padding: 10px;
+}
+.blogtitle{
+    display: inline-block;
+    max-width: 50%;
+    align-content: center;
+    padding-left: 20px;
+}
 /* хром, сафари */
 body::-webkit-scrollbar { width: 0; }
 

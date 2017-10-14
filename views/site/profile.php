@@ -12,27 +12,26 @@ use \yii\bootstrap\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use yii\widgets\LinkPager;
 
-$this->title = 'Блог';
-
+$this->title = 'Личный кабинет';
 ?>
 
 <div class="row profilefon">
     <div class="col-md-1"></div>
     <div class="col-md-10">
         <div class="profile">
-            <h2>Добро пожаловать в Ваш личный кабинет, Пользыватель!</h2>
-            <figure><img src="/img/pic3.jpg"></figure>
+            <h2>Добро пожаловать в Ваш личный кабинет, <?=$user->username?>!</h2>
+            <figure><img src="/<?=$user->avatar?>"></figure>
             <div class="authorinfo">
                 <P>Имя пользователя:</P>
-                <P class="pole">Владимир </P>
+                <P class="pole"><?=$user->username?></P>
                 <P>Фамилия пользователя:</P>
-                <P class="pole">Грибоедов </P>
+                <P class="pole"><?=$user->surname?></P>
                 <p>Информация о пользователе:</p>
-                <P class="pole">Джон Рэндольф Пеппер – итало-американский фотограф, режиссер театра и кино, сценарист. Родился в Риме в 1958 году в семье фотокорреспондента Билла Пеппера, возглавлявшего в то время римское бюро «Newsweek». В 1976 году Пеппер окончил Принстонский университет по специальности «История искусств», а затем стал стипендиатом Американского института киноискусства в Лос-Анджелесе.</P>
+                <P class="pole"><?=$user->about?></P>
                 <p>E-mail:</p>
-                <P class="pole">likecoffee@yandex.ru</P>
+                <P class="pole"><?=$user->email?></P>
                 <p>Контактный телефон:</p>
-                <P class="pole">+375445699374</P>
+                <P class="pole"><?=$user->tel?></P>
             </div>
             <p class="small">Аватар и информация об авторе будут отображены в разделе "Галлерея". Личные данные недоступны для просмотра другими пользователями.
             </p>

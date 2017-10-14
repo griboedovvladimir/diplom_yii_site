@@ -65,9 +65,11 @@ AppAsset::register($this);
                         <p class="navbar-text navbar-right">
                             <?
                             if (Yii::$app->user->identity->username){
-                                $goToProfile= Yii::$app->user->identity->username;
-           
-                            echo "&nbsp".Yii::$app->user->identity->username.", Вы в даркруме!";}
+                                $userid= Yii::$app->user->identity->users_id;
+                                $username=Yii::$app->user->identity->username;
+                                $goToProfile=Yii::$app->getUrlManager()->createUrl('profile');
+                                $linkToProfile="<a style='text-decoration: underline' href='$goToProfile'>$username</a>";
+                            echo "&nbsp".$linkToProfile.", Вы в даркруме!";}
                             else {echo "&nbsp Пока что Ваш статуст \"Гость\"";}
                             ?>
                         </p>

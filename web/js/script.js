@@ -137,6 +137,9 @@ mouseout(function(){
     $('#authorization').click(function() {
         $("#myModalBox").modal('show');
     });
+    $('#profilebtn').click(function() {
+        $("#myModalBox").modal('show');
+    });
     $(function () {
         // инициализировать все элементы на страницы, имеющих атрибут data-toggle="tooltip", как компоненты tooltip
         $('[data-toggle="tooltip"]').tooltip()

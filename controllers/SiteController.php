@@ -213,7 +213,9 @@ class SiteController extends Controller
 
     public function actionProfile()
     {
-        return $this->render('profile',['model'=>$model]);
+        $get=Yii::$app->request->get('id');
+        $user = Users::findOne($get);
+        return $this->render('profile',['user'=>$user ]);
     }
 
     public function actionBlog()

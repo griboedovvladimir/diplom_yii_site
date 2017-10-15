@@ -18,6 +18,7 @@ use app\models\Product;
 use yii\data\Pagination;
 use app\models\DataForm;
 use app\models\SignupForm;
+use app\models\UplodedFile;
 class SiteController extends Controller
 {
     /**
@@ -45,10 +46,8 @@ class SiteController extends Controller
             ],
         ];
     }
+    public $enableCsrfValidation = false;
 
-    /**
-     * @inheritdoc
-     */
     public function actions()
     {
         return [
@@ -80,6 +79,11 @@ class SiteController extends Controller
             'example' => $index, 'example2' => $index2
         ]);
     }
+
+
+        /**
+         * @inheritdoc
+         */
 
     public function actionNews($page=1)
     {
@@ -214,8 +218,13 @@ class SiteController extends Controller
     public function actionProfile()
     {
         $get=Yii::$app->request->get('id');
+        if(Yii::$app->user->identity->users_id==$get){
         $user = Users::findOne($get);
-        return $this->render('profile',['user'=>$user ]);
+        return $this->render('profile',['user'=>$user ]);}
+        else{
+            return $this->render('error2',[]);
+        }
+
     }
 
     public function actionBlog()

@@ -45,7 +45,7 @@ AppAsset::register($this);
                 <i class="icon-skype"></i> darkroom_by<br>
             </div>
             <div class="col-md-3">
-                <div class="rights">Сайт разработан для сообщества darkroom.by</div></br>
+                <div class="rights">Сайт разработан для сообщества darkroom.by<br>© Грибоедов Владимир'17</div></br>
             </div>
             <div class="col-md-4 social">
                 <a href="https://vk.com/darkroom_by" data-toggle="tooltip" title="Мы в Вконтакте"><i class="icon-vk"></i></a>

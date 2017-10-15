@@ -569,6 +569,11 @@ max-width: 100px;
     align-content: center;
     padding-left: 20px;
 }
+@media (max-width: 771px) {
+    .shop_category img {
+        visibility: hidden;
+    }
+}
 /* хром, сафари */
 body::-webkit-scrollbar { width: 0; }
 

@@ -20,7 +20,7 @@ $this->title = 'Фотолавка';
                 <h3><?=$cat->category_name?></h3>
                 <p><?=$cat->category_about?></p>
             </div>
-            <img src="img/paper.jpg" class="pull-right" ><div>
+            <img src="/<?=$cat->Image?>" class="pull-right" ><div>
             </div>
           </div> </a>
 <? } ?>

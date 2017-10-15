@@ -28,7 +28,7 @@ $this->title = 'Галерея';
                     <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'>Подробнее<span class='arrow right grey'></span></a>
                 </div>
                 <div class='img hidden-sm hidden-xs'>
-                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<? $i=0; foreach($images as $img){ $i++; if($i>5 && $usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
+                    <a href='<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>'><img src='<? $i=0; foreach($images as $img){ $i++; if($i>6 && $usergallery->users_id==$img->users_id){echo $img->image; break;}}?>' /></a>
                 </div>
                 <div class='mini hidden-sm hidden-xs'>
                     <? $i=0; foreach($images as $img)

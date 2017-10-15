@@ -7,8 +7,9 @@ use \yii\bootstrap\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use yii\widgets\LinkPager;
 
-$this->title = $author->username." ".$author->surname;
 
+$this->title = $author->username." ".$author->surname;
+var_dump(Yii::$app->request->post());
 ?>
 <div class="row">
     <div class="col-md-1"></div>
@@ -43,7 +44,12 @@ $this->title = $author->username." ".$author->surname;
 
 <div class="row">
     <div class="col-md-2"></div>
-    <div class="col-md-8"> <button type="button" id="galleryAddBtn" class="btn btn-default addbtn">Добавить / удалить фотоработу</button> </div>
+    <? if ((Yii::$app->user->can('update'))&& Yii::$app->request->get('id')==Yii::$app->user->identity->users_id){
+    echo '<div class="col-md-8"><button type="button" id="galleryAddBtn" class="btn btn-default addbtn">Добавить / удалить фотоработу</button> </div>';}
+    elseif(Yii::$app->user->can('admin')){
+        echo '<div class="col-md-8"><button type="button" id="galleryAddBtn" class="btn btn-default addbtn">Добавить / удалить фотоработу</button> </div>';
+    };
+    ?>
     <div class="col-md-2"></div>
 </div>
 
@@ -57,6 +63,7 @@ $this->title = $author->username." ".$author->surname;
                 <h4 class="modal-title">Добавить / удалить фотоработу </h4>
             </div>
             <!-- Основное содержимое модального окна -->
+            <form id="authorgalleryForm" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
                     <p>Загруженные работы:</p>
@@ -75,22 +82,19 @@ $this->title = $author->username." ".$author->surname;
 
                 <div class="form-group">
                     <label for="inputWork">Добавить фото</label>
-                    <input type="file" id="inputWork" class="filestyle" data-placeholder="Файл не выбран">
+                    <input name="inputWork" type="file" id="inputWork" class="filestyle" data-placeholder="Файл не выбран">
                 </div>
+
             </div>
+
             <!-- Футер модального окна -->
             <div class="modal-footer">
+                <input placeholder="Введите текст" name="text">
                 <button type="button" class="btn btn-defaultmodal" data-dismiss="modal">Закрыть</button>
-                <button type="submit" class="btn btn-primary">Добавить</button>
+                <input class="btn btn-primary" type="submit" value="Добавить">
             </div>
+
+            </form>
         </div>
     </div>
 </div>
-
-<!-- Скрипт, вызывающий модальное окно после загрузки страницы -->
-<!--<script>-->
-<!--    $('#galleryAddBtn').click(function() {-->
-<!--        $("#myModalBox").modal('show');-->
-<!--        alert("22");-->
-<!--    });-->
-<!--</script>-->

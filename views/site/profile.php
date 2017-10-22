@@ -32,6 +32,13 @@ $this->title = 'Личный кабинет';
                 <P class="pole"><?=$user->email?></P>
                 <p>Контактный телефон:</p>
                 <P class="pole"><?=$user->tel?></P>
+
+                <?if(Yii::$app->user->can('admin')){
+                    $button='<button type="button"  class="btn btn-danger addbtn">Администрировать</button>';
+                    $link=Yii::$app->getUrlManager()->createUrl('error');
+                echo "<a href='".$link."'>".$button."</a>";
+                };?>
+
             </div>
             <p class="small">Аватар и информация об авторе будут отображены в разделе "Галлерея". Личные данные недоступны для просмотра другими пользователями.
             </p>
@@ -56,28 +63,29 @@ $this->title = 'Личный кабинет';
                 <h4 class="modal-title">Изменить личные данные</h4>
             </div>
             <!-- Основное содержимое модального окна -->
+            <form id="profileForm" method="post" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="inputEmail">Адрес email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Введите email">
+<!--                    <label for="inputEmail">Адрес email</label>-->
+<!--                    <input type="email" class="form-control" id="inputEmail" placeholder="Введите email">-->
 
                     <label for="inputPassword">Пароль</label>
                     <input type="password" class="form-control" id="inputPassword" placeholder="Введите пароль">
                 </div>
                 <div class="form-group">
                     <label for="inputName">Имя</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Введите свое имя">
+                    <input type="text"  name="username" class="form-control" id="inputName" placeholder="Введите свое имя">
 
                     <label for="inputSurname">Фамилия</label>
-                    <input type="text" class="form-control" id="inputSurname" placeholder="Введите свою фамилию">
+                    <input type="text" name="surname" class="form-control" id="inputSurname" placeholder="Введите свою фамилию">
 
                     <label for="phone">Контактный телефон</label>
-                    <input type="phone" name="phone" class="form-control" id="phone" placeholder="Введите номер телефона">
+                    <input type="phone" name="tel" class="form-control" id="phone" placeholder="Введите номер телефона">
 
                 </div>
                 <div class="form-group">
                     <label for="exampleTextarea">Краткая информация о себе</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                    <textarea name="about" class="form-control" id="exampleTextarea" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -85,11 +93,13 @@ $this->title = 'Личный кабинет';
                     <input type="file" id="inputAvatar" class="filestyle" data-placeholder="Файл не выбран">
                 </div>
             </div>
+
             <!-- Футер модального окна -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-defaultmodal" data-dismiss="modal">Закрыть</button>
-                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                <input class="btn btn-primary" type="submit" value="Сохранить изменения">
             </div>
+            </form>
         </div>
     </div>
 </div>

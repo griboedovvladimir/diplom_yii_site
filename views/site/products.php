@@ -8,7 +8,7 @@ use mihaildev\ckeditor\CKEditor;
 
 
 $this->title = $cat->category_name;
-var_dump($_FILES);
+
 ?>
 
 <div class="productsfon fadeIn animated">
@@ -35,11 +35,12 @@ var_dump($_FILES);
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-<? foreach  ($productcard as $card){?>
+
             <div class="productwrap">
+                <? foreach  ($productcard as $card){?>
                 <div class="product productcard">
                     <div class="product-img">
-                        <img src="/<?=$card->image?>" alt="">
+                        <img style='max-height:190px' src="/<?=$card->image?>" alt="">
                     </div>
                     <h4 class="product-title"><?=$card->product_name?></h4>
                     <p class="product-desc"><?=$card->aboutproduct?></p>

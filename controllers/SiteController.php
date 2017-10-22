@@ -218,12 +218,42 @@ class SiteController extends Controller
     public function actionProfile()
     {
         $get=Yii::$app->request->get('id');
-        if(Yii::$app->user->identity->users_id==$get){
-        $user = Users::findOne($get);
+
+        if(Yii::$app->user->identity->users_id==$get || Yii::$app->user->can('admin' )){
+
+            if(Yii::$app->request->post()){
+                if($_POST['tel']){
+                $post=Users::findOne($get);
+                $post->tel=$_POST['tel'];
+                $post->save();}
+
+                if($_POST['username']){
+                $post=Users::findOne($get);
+                $post->username=$_POST['username'];
+                $post->save();}
+
+                if($_POST['about']){
+                $post=Users::findOne($get);
+                $post->about=$_POST['about'];
+                $post->save();}
+
+                if($_POST['surname']){
+                $post=Users::findOne($get);
+                $post->surname=$_POST['surname'];
+                $post->save();}
+
+                if($_POST['email']){
+                    $post=Users::findOne($get);
+                    $post->email=$_POST['email'];
+                    $post->save();}
+
+            };
+            $user = Users::findOne($get);
         return $this->render('profile',['user'=>$user ]);}
         else{
             return $this->render('error2',[]);
         }
+
 
     }
 

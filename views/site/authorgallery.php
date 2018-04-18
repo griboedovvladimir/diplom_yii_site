@@ -89,7 +89,6 @@ $this->title = $author->username." ".$author->surname;
 
             <!-- Футер модального окна -->
             <div class="modal-footer">
-                <input placeholder="Введите текст" name="text">
                 <button type="button" class="btn btn-defaultmodal" data-dismiss="modal">Закрыть</button>
                 <input class="btn btn-primary" type="submit" value="Добавить">
             </div>

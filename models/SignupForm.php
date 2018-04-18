@@ -23,7 +23,7 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required', 'message'=>'Поле "{attribute}" не должно быть пустым.'],
-            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
+//            ['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
             ['email', 'trim'],
             ['email', 'required', 'message'=>'Поле "{attribute}" не должно быть пустым.'],

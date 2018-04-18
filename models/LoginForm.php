@@ -49,7 +49,7 @@ class LoginForm extends Model
             $user = $this->getUser();
 
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Некорректные имя либо пороль.');
+                $this->addError($attribute, 'Некорректные email либо пороль.');
             }
         }
     }
@@ -69,7 +69,7 @@ class LoginForm extends Model
     {
         return [
             'email' => 'Email',
-            'password' => 'Пороль',
+            'password' => 'Пароль',
             'rememberMe' => 'Запомнить меня',
 //etc...
         ];

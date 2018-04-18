@@ -102,23 +102,24 @@ AppAsset::register($this);
     <div class="footer">
         <hr>
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-3">
+            <div class="col-md-1"></div>
+            <div class="col-md-3 footerLinks">
                 Наши контакты:<br>
-                <i class="icon-phone"></i> +37544000000<br>
-                <i class="icon-email"></i> darkroom.by@gmail.com<br>
-                <i class="icon-skype"></i> darkroom_by<br>
+                <a href="mailto:darkroom.by@gmail.com"><i class="icon-email"></i> darkroom.by@gmail.com</a><br>
+                <a href="skype:darkroom_by"><i class="icon-skype"></i> darkroom_by</a><br>
             </div>
             <div class="col-md-3">
-                <div class="rights">Сайт разработан для сообщества darkroom.by<br>© Грибоедов Владимир'17</div></br>
+                <!--Реклама-->
             </div>
             <div class="col-md-4 social">
+                <div>
                 <a href="https://vk.com/darkroom_by" data-toggle="tooltip" title="Мы в Вконтакте"><i class="icon-vk"></i></a>
                 <a href="https://www.facebook.com/darkroom.by/" data-toggle="tooltip" title="Мы в Facebook"><i class="icon-facebook-rect-1"></i></a>
                 <a href="#" data-toggle="tooltip" title="Мы в Flickr"><i class="icon-flickr-1"></i></a>
                 <a href="#" data-toggle="tooltip" title="Мы в Instagram"><i class="icon-instagram-filled"></i></a>
+                </div>
             </div>
-
+            <div class="col-md-1"></div>
         </div>
         <div class="row">
             <div class="col-md-1"></div>

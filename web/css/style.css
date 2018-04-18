@@ -36,6 +36,9 @@ img {
     height: auto;
     max-width: 100%;
 }
+button {
+    outline: none;
+}
 .container-fluid a{
     text-decoration: none;
 }
@@ -219,6 +222,9 @@ position: relative;
 .footer .col-md-3{
     padding-left: 20px;
 }
+.footerLinks a:hover{
+    color:white;
+}
 .rights{
     padding:10px 0;
 }
@@ -226,8 +232,19 @@ position: relative;
     margin:5px;
     font-size: 23px;
 }
+.social div{
+    float: right;
+}
+@media (max-width: 991px) {
+    .social div{
+        float: left;
+    }
+}
 .social i:hover {
     color:red;
+}
+.rights{
+    font-size: 8pt;
 }
 #authorization{
     height: 30px;
@@ -408,31 +425,56 @@ width:95%;
 /*Shop*/
 .shop_category{
     height:100px;
-    margin: 20px 0;
+    margin: 15px 0;
     background-color: rgba(1, 1, 1, 0.6);
     border-radius: 15px;
-
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 280px;
+    justify-content:center;
 }
+
+@media (max-width: 500px) {
+    .shop_category {
+        height:80px;
+        line-height: 80px;
+    }
+    .shop_category p{
+        display:none ;
+    }
+
+    .shop_category h3{
+        line-height: normal;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+    }
+    .shop_category img{
+        height:0;
+    }
+}
+
 .shop_category img{
     height:100px;
     filter:brightness(65%);
     border-radius: 5%;
+    flex-grow: 0;
    /* opacity:0.6;*/
 }
 .shop_category p{
     font-size: 14px;
     color:white;
-
 }
 .shop_category h3{
     font-size: 22px;
     color:white;
-
 }
 .shop_category div{
     display: inline-block;
     margin-left: 30px;
     color:white;
+    flex-grow: 1;
 
 }
 .shopfon {
@@ -578,7 +620,7 @@ max-width: 100px;
 }
 @media (max-width: 771px) {
     .shop_category img {
-        visibility: hidden;
+        display:none ;
     }
 }
 /* хром, сафари */

@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Пожалуста заполните поля формы для входа, или <a id="signup" href="<?=Yii::$app->getUrlManager()->createUrl('signup')?>">зарегистрируйтесь</a></p>
+    <p>Пожалуста, заполните поля формы для входа, или <a id="signup" href="<?=Yii::$app->getUrlManager()->createUrl('signup')?>">зарегистрируйтесь</a></p>
 
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',

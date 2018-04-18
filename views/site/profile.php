@@ -36,7 +36,7 @@ $this->title = 'Личный кабинет';
                 <?if(Yii::$app->user->can('admin')){
                     $button='<button type="button"  class="btn btn-danger addbtn">Администрировать</button>';
                     $link=Yii::$app->getUrlManager()->createUrl('error');
-                echo "<a href='".$link."'>".$button."</a>";
+                echo "<a href='https://by119.atservers.net/myadmin/index.php?db=user2045791_darkroom&token=cfababd17ad799ff6baac22dd3105540'>".$button."</a>";
                 };?>
 
             </div>

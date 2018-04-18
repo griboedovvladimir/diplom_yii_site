@@ -16,12 +16,11 @@ $this->title = 'Фотолавка';
         <?php foreach($query as $cat){?>
             <?$link=$cat->category_id?>
       <a href="<?=Yii::$app->getUrlManager()->createUrl('products/'.$link.'')?>">  <div class="shop_category">
-           <div>
+           <div class='shop_textCategory'>
                 <h3><?=$cat->category_name?></h3>
                 <p><?=$cat->category_about?></p>
             </div>
-            <img src="/<?=$cat->Image?>" class="pull-right" ><div>
-            </div>
+            <img src="/<?=$cat->Image?>" class="pull-right" >
           </div> </a>
 <? } ?>
     </div>

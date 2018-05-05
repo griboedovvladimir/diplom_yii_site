@@ -64,11 +64,12 @@ $this->title = 'Личный кабинет';
             </div>
             <!-- Основное содержимое модального окна -->
             <form id="profileForm" method="post" enctype="multipart/form-data">
+                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
             <div class="modal-body">
                 <div class="form-group">
 <!--                    <label for="inputEmail">Адрес email</label>-->
 <!--                    <input type="email" class="form-control" id="inputEmail" placeholder="Введите email">-->
-
+<!---->
                     <label for="inputPassword">Пароль</label>
                     <input type="password" class="form-control" id="inputPassword" placeholder="Введите пароль">
                 </div>
@@ -89,8 +90,7 @@ $this->title = 'Личный кабинет';
                 </div>
 
                 <div class="form-group">
-                    <label for="inputAvatar">Аватар</label>
-                    <input type="file" id="inputAvatar" class="filestyle" data-placeholder="Файл не выбран">
+                    <?= $form->field($model, 'imageFile')->fileInput() ?>
                 </div>
             </div>
 
@@ -99,6 +99,7 @@ $this->title = 'Личный кабинет';
                 <button type="button" class="btn btn-defaultmodal" data-dismiss="modal">Закрыть</button>
                 <input class="btn btn-primary" type="submit" value="Сохранить изменения">
             </div>
+                <?php ActiveForm::end() ?>
             </form>
         </div>
     </div>

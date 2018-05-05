@@ -18,7 +18,10 @@ use app\models\Product;
 use yii\data\Pagination;
 use app\models\DataForm;
 use app\models\SignupForm;
-use app\models\UplodedFile;
+use app\models\UploadProductImage;
+use app\models\UploadForm;
+use app\models\UploadAvatar;
+use yii\web\UploadedFile;
 class SiteController extends Controller
 {
     /**
@@ -172,9 +175,11 @@ class SiteController extends Controller
      *
      * @return string
      */
+
     public function actionAbout()
     {
-        return $this->render('about',['model'=>$model]);
+
+        return $this->render('about', ['model' => $model]);
     }
     public function actionLaboratory()
     {
@@ -194,31 +199,113 @@ class SiteController extends Controller
     public function actionAuthorgallery()
     {
         $get=Yii::$app->request->get('id');
+
+        $model = new UploadForm();
+        if (Yii::$app->request->isPost) {
+            $reqbody=Yii::$app->request->bodyParams;
+            foreach ($reqbody as $item=>$i){
+                if(isset($i)&& $i=='on') {
+                    $replaced= str_replace("_",".",$item);
+                    $replaced=substr($replaced,1);
+                    $connection = Yii::$app->db;
+                    $connection->createCommand()->delete('Images', 'image ="' . $replaced . '"')->execute();
+                    $model->afterDelete ($replaced);
+                }
+            }
+
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $uniq=uniqid();
+            if ($model->upload($uniq)) {
+                // file is uploaded successfully
+                $send=new Images();
+                $send->image='img/userimg/'.$uniq.$model->imageFile->name;
+                $send->users_id=$get;
+                $send->save();
+                $model->imageFile =null;
+                $send=null;
+
         if($get){
             $allimg = Images::find()->where(['users_id'=>$get])->all();
             $author = Users::findOne($get);
             return $this->render('authorgallery', [
                 'author' => $author,
                 'allimg' => $allimg,
+                'model' => $model,
             ]);
         }
-        else{return $this->render('error',['model'=>$get]);}
+        else{
+            return $this->render('error',['model'=>$get]);
+        }
+            }
+            else{
+                $allimg = Images::find()->where(['users_id'=>$get])->all();
+                $author = Users::findOne($get);
+                return $this->render('authorgallery', [
+                    'author' => $author,
+                    'allimg' => $allimg,
+                    'model' => $model,
+                ]);
+            }
+        }
+        else{
+            if($get){
+                $allimg = Images::find()->where(['users_id'=>$get])->all();
+                $author = Users::findOne($get);
+                return $this->render('authorgallery', [
+                    'author' => $author,
+                    'allimg' => $allimg,
+                    'model' => $model,
+                ]);
+            }
+            else{
+                return $this->render('error',['model'=>$get]);
+            }
+        }
     }
 
     public function actionProducts()
     {
         $get=Yii::$app->request->get('id');
+        $cat = Category::findOne($get);
+        $model = new UploadProductImage();
+        if(Yii::$app->request->post()) {
+            if (Product::findOne($_POST['product_id'])) {
+                $post=Product::findOne($_POST['product_id']);
+                $post->delete();
+                if( $_POST['productImg']!='img/userimg/defult.jpg'){
+                    $model->afterDelete ($_POST['productImg']);
+                };
+                }
+                if($_POST['inputProductName']&&$_POST['aboutProductTextArea']&&$_POST['inputProductContacts']&&($_POST['inputProductPrice']&&is_numeric($_POST['inputProductPrice']))){
+                    $send=new Product();
+                    $send->aboutproduct=$_POST['aboutProductTextArea'];
+                    $send->contacts=$_POST['inputProductContacts'];
+                    $send->price=$_POST['inputProductPrice'];
+                    $send->product_name=$_POST['inputProductName'];
+                    $send->category_id=$cat->category_id;
+                    $send->users_id=Yii::$app->user->identity->users_id;
+                    $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                    $uniq=uniqid();
+                    if ($model->upload($uniq)) {
+                        // file is uploaded successfully
+                        $send->image = 'img/prodimg/' . $uniq . $model->imageFile->name;
+                        $model->imageFile = null;
+                    }
+                    $send->save();
+                    $send=null;
+                }
+
+        }
         $productcard = Product::find()->where(['category_id'=>$get])->all();
         $username= Users::find()->all();
-        $cat = Category::findOne($get);
         $allcat = Category::find()->all();
-        return $this->render('products',['cat'=>$cat,'allcat'=>$allcat,'productcard'=>$productcard,'username'=>$username]);
+       return $this->render('products',['cat'=>$cat,'allcat'=>$allcat,'productcard'=>$productcard,'username'=>$username,'model'=>$model]);
     }
 
     public function actionProfile()
     {
         $get=Yii::$app->request->get('id');
-
+        $model = new UploadAvatar();
         if(Yii::$app->user->identity->users_id==$get || Yii::$app->user->can('admin' )){
 
             if(Yii::$app->request->post()){
@@ -246,10 +333,22 @@ class SiteController extends Controller
                     $post=Users::findOne($get);
                     $post->email=$_POST['email'];
                     $post->save();}
+                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                $uniq=uniqid();
+                if ($model->upload($uniq)) {
+                    $post=Users::findOne($get);
+                    $post->avatar = 'img/userimg/' . $uniq . $model->imageFile->name;
+                    $model->imageFile = null;
+                    $user = Users::findOne($get);
+                    if($user->avatar!='img/userimg/defult.jpg'){
+                        $model->afterDelete ($user->avatar);
+                    }
+                    $post->save();
+                }
 
             };
             $user = Users::findOne($get);
-        return $this->render('profile',['user'=>$user ]);}
+        return $this->render('profile',['user'=>$user, 'model'=>$model ]);}
         else{
             return $this->render('error2',[]);
         }

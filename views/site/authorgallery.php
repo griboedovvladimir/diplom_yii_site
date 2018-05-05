@@ -33,7 +33,6 @@ $this->title = $author->username." ".$author->surname;
     <div class="col-md-10 agal">
         <?php foreach ($allimg as $img){
             echo '<a href="/'.$img->image.'" data-fancybox data-caption=""><img class="works center-block" src="/'.$img->image.'" alt="" /></a>';
-           // echo $img->image;
         }
         ?>
 
@@ -54,6 +53,7 @@ $this->title = $author->username." ".$author->surname;
 </div>
 
 <!-- HTML-код модального окна -->
+
 <div id="myModalBox" class="modal fade" >
     <div class="modal-dialog">
         <div class="modal-content">
@@ -64,6 +64,7 @@ $this->title = $author->username." ".$author->surname;
             </div>
             <!-- Основное содержимое модального окна -->
             <form id="authorgalleryForm" method="post" enctype="multipart/form-data">
+                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
             <div class="modal-body">
                 <div class="form-group">
                     <p>Загруженные работы:</p>
@@ -71,28 +72,31 @@ $this->title = $author->username." ".$author->surname;
 <?php foreach ($allimg as $img){ ?>
 
     <label class="form-check-label" >
-                            <input type = "checkbox" class="form-check-input" >
+                            <input type = "checkbox" class="form-check-input" name="/<?=$img->image ?>" >
                             <img class="worksfordelete" src = "/<?=$img->image ?>">
+
                         </label >
     <?php } ?>
                     </div>
-                    <button type="submit" class="btn btn-danger">Удалить отмеченные</button>
 
                 </div>
 
                 <div class="form-group">
-                    <label for="inputWork">Добавить фото</label>
-                    <input name="inputWork" type="file" id="inputWork" class="filestyle" data-placeholder="Файл не выбран">
+
+
+                    <?= $form->field($model, 'imageFile')->fileInput() ?>
+
                 </div>
 
             </div>
 
             <!-- Футер модального окна -->
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-defaultmodal" data-dismiss="modal">Закрыть</button>
-                <input class="btn btn-primary" type="submit" value="Добавить">
+                <input class="btn btn-primary" type="submit" value="Добавить/Удалить отмеченные">
             </div>
-
+                <?php ActiveForm::end() ?>
             </form>
         </div>
     </div>

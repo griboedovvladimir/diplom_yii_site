@@ -16,11 +16,11 @@ $this->title = 'Галерея';
         <div class="gallery fadeIn animated">
 
 <?
+$id=Yii::$app->user->identity->users_id;
 foreach($user as $usergallery){ $link=$usergallery->users_id;
-     foreach($images as $img){if($usergallery->users_id==$img->users_id)
-{if($img->image ){
+     foreach($images as $img){if($usergallery->users_id==$img->users_id||$usergallery->users_id==$id || Yii::$app->user->can('admin'))
+{
     ?>
-
             <div class='item clearfix'>
                 <div class='img hidden-lg hidden-md'>
                     <a href="<?=Yii::$app->getUrlManager()->createUrl('authorgallery/'.$link.'')?>"><img src='<? $i=0; foreach($images as $img){ $i++; if($i>5 && $usergallery->users_id==$img->users_id ){echo $img->image; break;}}?>' /></a>
@@ -51,30 +51,8 @@ foreach($user as $usergallery){ $link=$usergallery->users_id;
 
                 </div>
             </div>
-<?break;}}}}?>
+<?break;}}}?>
 
-<!--            <div class='item clearfix'>-->
-<!--                <div class='img hidden-lg hidden-md'>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
-<!--                </div>-->
-<!--                <div class='txt'>-->
-<!--                    <div class='title'><a href='/authors/John-Pepper'>Имя автора </a></div>-->
-<!--                    <div class='desc hidden-md hidden-xs'>-->
-<!---->
-<!--                    </div>-->
-<!--                    <a href='/authors/John-Pepper'>Об авторе<span class='arrow right grey'></span></a>-->
-<!--                </div>-->
-<!--                <div class='img hidden-sm hidden-xs'>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
-<!--                </div>-->
-<!--                <div class='mini hidden-sm hidden-xs'>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' /></a>-->
-<!--                    <a href='/authors/John-Pepper'><img src='img/pic3.jpg' class='last' /></a>-->
-<!--                </div>-->
-<!--            </div>-->
 
         </div>
     </div>

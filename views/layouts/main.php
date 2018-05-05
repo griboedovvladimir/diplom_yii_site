@@ -22,6 +22,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+<div id="loyoutContent">
 <?php $this->beginBody() ?>
 
 
@@ -99,6 +100,7 @@ AppAsset::register($this);
         </div>
     </div>
     <?= $content ?>
+</div>
     <div class="footer">
         <hr>
         <div class="row">
@@ -106,7 +108,7 @@ AppAsset::register($this);
             <div class="col-md-3 footerLinks">
                 Наши контакты:<br>
                 <a href="mailto:darkroom.by@gmail.com"><i class="icon-email"></i> darkroom.by@gmail.com</a><br>
-                <a href="skype:darkroom_by"><i class="icon-skype"></i> darkroom_by</a><br>
+                <a href="skype:darkroom.by"><i class="icon-skype"></i> darkroom_by</a><br>
             </div>
             <div class="col-md-3">
                 <!--Реклама-->
@@ -115,8 +117,8 @@ AppAsset::register($this);
                 <div>
                 <a href="https://vk.com/darkroom_by" data-toggle="tooltip" title="Мы в Вконтакте"><i class="icon-vk"></i></a>
                 <a href="https://www.facebook.com/darkroom.by/" data-toggle="tooltip" title="Мы в Facebook"><i class="icon-facebook-rect-1"></i></a>
-                <a href="#" data-toggle="tooltip" title="Мы в Flickr"><i class="icon-flickr-1"></i></a>
-                <a href="#" data-toggle="tooltip" title="Мы в Instagram"><i class="icon-instagram-filled"></i></a>
+                <a href="https://www.flickr.com/photos/darkroom_by/" data-toggle="tooltip" title="Мы в Flickr"><i class="icon-flickr-1"></i></a>
+                <a href="https://www.instagram.com/darkroom.by/" data-toggle="tooltip" title="Мы в Instagram"><i class="icon-instagram-filled"></i></a>
                 </div>
             </div>
             <div class="col-md-1"></div>

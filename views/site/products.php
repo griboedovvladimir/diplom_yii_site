@@ -6,7 +6,6 @@ use yii\helpers\Html;
 use \yii\bootstrap\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 
-
 $this->title = $cat->category_name;
 
 ?>
@@ -39,23 +38,41 @@ $this->title = $cat->category_name;
             <div class="productwrap">
                 <? foreach  ($productcard as $card){?>
                 <div class="product productcard">
+                   <? if ($card->users_id==Yii::$app->user->identity->users_id || Yii::$app->user->can('admin')) {
+                       ///echo '<button class="removeItem" style = "background-color: transparent; border: none;float:right;font-size: 16pt" data - toggle = "tooltip" title = "Удалить товар" >&#215</button>';
+                       echo Html::a('&#215',
+                           ['products/' . $cat->category_id],  [
+                               'data-method' => 'POST',
+                               'data-params' => [
+                                   'product_id' => $card->product_id,
+                                   'productImg'=> $card->image
+                               ]
+                           ]);
+                   };?>
+                    <script>
+                        var a=document.querySelectorAll('.productcard a');
+                     a.forEach(function(i,item)
+                        {
+                            i.setAttribute('data-toggle', 'tooltip');
+                            i.setAttribute('title', 'Удалить товар');
+                        })
+                    </script>
                     <div class="product-img">
                         <img style='max-height:190px' src="/<?=$card->image?>" alt="">
                     </div>
                     <h4 class="product-title"><?=$card->product_name?></h4>
                     <p class="product-desc"><?=$card->aboutproduct?></p>
-                    <p>Имя продавца:</p>
+                    <p style="color:grey">Имя продавца:</p>
                     <? foreach  ($username as $name){
                         if($name->users_id==$card->users_id){
                           echo  "<p>".$name->username." ".$name->surname."</p>";
                         }
                     }?>
-                    <p>Контакты продавца:</p>
+                    <p style="color:grey">Контакты продавца:</p>
                     <p><?=$card->contacts?></p>
                     <p class="product-price">Цена: <?=$card->price?> руб.</p>
                 </div>
 <?}?>
-
 
             </div>
         </div>
@@ -79,36 +96,38 @@ $this->title = $cat->category_name;
             <!-- Заголовок модального окна -->
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Добавить товар в "Фотолавку"</h4>
+                <h4 class="modal-title">Добавить товар в категорию "<?=$cat->category_name?>"</h4>
             </div>
             <!-- Основное содержимое модального окна -->
             <form id="productsForm" method="post" enctype="multipart/form-data">
+                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
+
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="inputProductName">Названеи товара</label>
+                    <label for="inputProductName">Наименование товара</label>
                     <input name="inputProductName" class="form-control" id="inputProductName" placeholder="Введите названеи товара">
 
                     <label for="aboutProductTextArea">Краткая информация о товаре</label>
                     <textarea name="aboutProductTextArea" class="form-control" id="aboutProductTextArea" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="inputSellerName">Имя продавца</label>
-                    <input name="inputSellerName" class="form-control" id="inputProductAuthorName" placeholder="Введите свое имя">
-
-                    <label for="inputProductAbout">Контактная информация</label>
-                    <input name="inputProductAbout" class="form-control" id="inputProductContacts" placeholder="Введите контакты">
+<!
+                    <label for="inputProductContacts">Контактная информация</label>
+                    <input name="inputProductContacts" class="form-control" id="inputProductContacts" placeholder="Введите контакты">
+                    <label for="inputProductPrice">Цена товара</label>
+                    <input name="inputProductPrice" class="form-control" id="inputProductPrice" placeholder="Введите цену в рублях">
 
                 </div>
                 <div class="form-group">
-                    <label for="inputWork">Добавить фото товара</label>
-                    <input name="inputWork" type="file" id="inputWork" class="filestyle" data-placeholder="Файл не выбран">
+                    <?= $form->field($model, 'imageFile')->fileInput() ?>
                 </div>
             </div>
             <!-- Футер модального окна -->
             <div class="modal-footer">
                 <button type="button" class="btn btn-defaultmodal" data-dismiss="modal">Закрыть</button>
-                <input class="btn btn-primary" type="submit" value="Добавить">
+                <input class="btn btn-primary" type="submit"  value="Добавить">
             </div>
+                <?php ActiveForm::end() ?>
             </form>
         </div>
     </div>

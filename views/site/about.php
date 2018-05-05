@@ -10,6 +10,8 @@ use mihaildev\ckeditor\CKEditor;
 $this->title = 'О проекте';
 
 ?>
+
+
 <article id="aboutpage">
     <div class="row">
         <div class="col-md-1"></div>
